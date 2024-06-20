@@ -13,7 +13,7 @@ def save_object(file_path, obj):
 
         os.makedirs(dir_path,exist_ok=True)
 
-        with open(dir_path,"wb") as f:
+        with open(file_path,"wb") as f:
             pickle.dump(obj,f)
 
     except Exception as e:
@@ -41,7 +41,7 @@ def evaluate_model(X_train,y_train,X_test,y_test,models):
 
             r2_list[list(models.keys())[i]] = test_score
 
-            return r2_list
+        return r2_list
         
     except Exception as e :
         logging.info('Exception occured during model training')
