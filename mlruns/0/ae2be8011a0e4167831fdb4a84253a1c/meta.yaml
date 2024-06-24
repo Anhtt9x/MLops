@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/d/Mlops_CICD/mlruns/0/ae2be8011a0e4167831fdb4a84253a1c/artifacts
+end_time: 1719215495410
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ae2be8011a0e4167831fdb4a84253a1c
+run_name: peaceful-auk-576
+run_uuid: ae2be8011a0e4167831fdb4a84253a1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719215456814
+status: 3
+tags: []
+user_id: tuananh

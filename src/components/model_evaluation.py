@@ -10,6 +10,7 @@ import pickle
 from src.utils.utils import load_object
 from src.exception.exception import customexception
 from src.logger.my_logging import logging
+import dagshub
 
 
 class ModelEvaluation:
@@ -31,7 +32,9 @@ class ModelEvaluation:
             model_path = os.path.join("artifacts", "model.pkl")
 
             model=load_object(model_path)
-            mlflow.set_registry_uri("https://dagshub.com/Anhtt9x/MLops.mlflow")
+
+            dagshub.init(repo_owner='Anhtt9x', repo_name='MLops', mlflow=True)
+
 
             tracking_url_type_store=urlparse(mlflow.get_tracking_uri()).scheme
             print(tracking_url_type_store)
@@ -46,7 +49,7 @@ class ModelEvaluation:
                 mlflow.log_metric("r2_score",r2)
 
                 if tracking_url_type_store != "file":
-                    mlflow.sklearn.log_model(model, "model", registry_model="mlmodel", signature=signature)
+                    mlflow.sklearn.log_model(model, "model", registered_model_name="mlmodel", signature=signature)
                 else:
                     mlflow.sklearn.log_model(model, "model", signature=signature)
         except Exception as e:
