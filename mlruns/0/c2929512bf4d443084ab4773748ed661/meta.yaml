@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/d/Mlops_CICD/mlruns/0/c2929512bf4d443084ab4773748ed661/artifacts
+end_time: 1719215276162
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c2929512bf4d443084ab4773748ed661
+run_name: clumsy-bug-755
+run_uuid: c2929512bf4d443084ab4773748ed661
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719215237272
+status: 3
+tags: []
+user_id: tuananh

@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/d/Mlops_CICD/mlruns/0/2e9b7dbaa9484e49bda1d4be6b4596f8/artifacts
+end_time: 1719215080219
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2e9b7dbaa9484e49bda1d4be6b4596f8
+run_name: nervous-bee-306
+run_uuid: 2e9b7dbaa9484e49bda1d4be6b4596f8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719215079766
+status: 4
+tags: []
+user_id: tuananh
