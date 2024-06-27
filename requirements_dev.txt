@@ -8,6 +8,8 @@ dvc
 ipykernel
 xgboost
 dagshub
+apache-airflow
+Flask-Session
 #dev requirements -
 
 pytest==7.1.3

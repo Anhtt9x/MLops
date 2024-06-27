@@ -1,0 +1,47 @@
+schema: '2.0'
+stages:
+  training:
+    cmd: python src/pipeline/training_pipeline.py
+    deps:
+    - path: src/components/data_ingestion.py
+      hash: md5
+      md5: 83c07b510c63ba6434163a65f80f7e17
+      size: 2212
+    - path: src/components/data_transformation.py
+      hash: md5
+      md5: 54c4d1f479b7261e4492d7a09c56c2d7
+      size: 3497
+    - path: src/components/model_evaluation.py
+      hash: md5
+      md5: 6aa579bb1718cae1042ea88568a3c4ee
+      size: 1960
+    - path: src/components/model_trainer.py
+      hash: md5
+      md5: 23fa05a55fe521dd02f929660d41a3bc
+      size: 2323
+    outs:
+    - path: artifacts/model.pkl
+      hash: md5
+      md5: b60df94136369ca3adee8b23a1b738be
+      size: 547
+      isexec: true
+    - path: artifacts/preprocess.pkl
+      hash: md5
+      md5: 37ff0fe4753ed7fe58a949b9f18d65f0
+      size: 2779
+      isexec: true
+    - path: artifacts/raw.csv
+      hash: md5
+      md5: 14ddfc56c931255ee10d3859d0ac4fc0
+      size: 10462804
+      isexec: true
+    - path: artifacts/test.csv
+      hash: md5
+      md5: 45ca6e1d60da7dac40821cfff4a7b99b
+      size: 2092227
+      isexec: true
+    - path: artifacts/train.csv
+      hash: md5
+      md5: 9c9fd5cd752a2c9c8d68821a2de5dc1a
+      size: 8370628
+      isexec: true
