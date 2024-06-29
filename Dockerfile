@@ -1,36 +1,40 @@
 FROM python:3.8-slim-buster
+USER root
 
 # Tạo thư mục và chuyển mã nguồn vào
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-# Cài đặt các gói yêu cầu từ requirements_dev.txt
-RUN pip install -r requirements_dev.txt 
 
-# Cài đặt các gói cần thiết
-RUN apt update -y && apt install -y --no-install-recommends \
-    libpq-dev \
+RUN apt-get update && apt-get install -y \
+    build-essential \
     gcc \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    python3-dev \
+    libffi-dev \
+    libssl-dev \
+    && apt-get clean
 
-# Cài đặt phiên bản cụ thể của pendulum trước khi cài đặt Airflow
-RUN pip install pendulum==2.1.2
 
-# Cài đặt Flask-Session trước khi cài đặt Airflow
-RUN pip install Flask-Session
+# Cài đặt các gói yêu cầu từ requirements.txt
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r /app/requirements.txt 
 
-# Cài đặt Airflow
-RUN pip install apache-airflow
+
 
 # Thiết lập các biến môi trường
 ENV AIRFLOW_HOME="/app/airflow"
 ENV AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT=1000
 ENV AIRFLOW__CORE__ENABLE_XCOM_PICKLING=True
+ENV AIRFLOW__CORE__DAGS_FOLDER="/app/airflow/dags"
+ENV PYTHONPATH="/app:/app/src"
+
+
+
 
 # Khởi tạo cơ sở dữ liệu Airflow
-RUN airflow db migrate  && sleep 5
+RUN airflow db init && sleep 5
 
 # Tạo người dùng Airflow
 RUN airflow users create \
@@ -43,7 +47,7 @@ RUN airflow users create \
 
 # Đảm bảo rằng tệp khởi động có quyền thực thi
 RUN chmod 777 start.sh
-
-# Đặt lệnh ENTRYPOINT
+RUN apt update -y
+# Đặt lệnh ENTRYPOINT và CMD
 ENTRYPOINT [ "/bin/sh" ]
 CMD [ "start.sh" ]

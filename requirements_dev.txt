@@ -9,7 +9,8 @@ ipykernel
 xgboost
 dagshub
 apache-airflow
-Flask-Session
+pendulum
+
 #dev requirements -
 
 pytest==7.1.3

@@ -24,24 +24,19 @@ stages:
       hash: md5
       md5: b60df94136369ca3adee8b23a1b738be
       size: 547
-      isexec: true
     - path: artifacts/preprocess.pkl
       hash: md5
       md5: 37ff0fe4753ed7fe58a949b9f18d65f0
       size: 2779
-      isexec: true
     - path: artifacts/raw.csv
       hash: md5
       md5: 14ddfc56c931255ee10d3859d0ac4fc0
       size: 10462804
-      isexec: true
     - path: artifacts/test.csv
       hash: md5
       md5: 45ca6e1d60da7dac40821cfff4a7b99b
       size: 2092227
-      isexec: true
     - path: artifacts/train.csv
       hash: md5
       md5: 9c9fd5cd752a2c9c8d68821a2de5dc1a
       size: 8370628
-      isexec: true
