@@ -1,7 +1,18 @@
 services:
-  application:
-    build: .
+  airflow:
+    build:
+      context: ./
+      dockerfile: Dockerfile.airflow
     image: my_docker_image_airflow
-    container_name: gemstone-prediction
+    container_name: gemstone-prediction_airflow
     ports:
       - "8080:8080"
+
+  flask:
+    build:
+      context: ./
+      dockerfile: Dockerfile.flask
+    image: flask_image
+    container_name: gemstone-prediction
+    ports:
+      - "8000:8000"
